@@ -1,6 +1,9 @@
+import styles from './App.module.scss'
+
 const App = () => {
     return (
-        <div className='App'>
+        <div className={styles.app} role='application'>
+
         </div>
     )
 }
