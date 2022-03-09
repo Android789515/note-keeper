@@ -1,5 +1,7 @@
-export interface State {
+import { createStore } from '@reduxjs/toolkit'
 
-}
+import reducer from './reducer'
 
-const initialState: State = {}
+const store = createStore(reducer)
+
+export default store

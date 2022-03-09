@@ -3,7 +3,11 @@ import { ID, Text, Color } from './types'
 
 export interface Note {
     id: ID
-    title: Text
     body: Text
     color: Color
+}
+
+export enum UpdatableNoteParts {
+    body = 'body',
+    color = 'color'
 }

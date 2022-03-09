@@ -1,8 +1,7 @@
-import { Action } from '../types/reduxTypes'
+import { combineReducers } from '@reduxjs/toolkit'
 
-const reducer = (state = {}, action: Action) => {
-    switch (action.type) {
-        default:
-            return state
-    }
-}
+import notes from '../note-list/notesReducer'
+
+const reducer = combineReducers({ notes })
+
+export default reducer
