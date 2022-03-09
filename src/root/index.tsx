@@ -7,8 +7,8 @@ import { HashRouter } from 'react-router-dom'
 
 import './index.css'
 
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import App from '../app/App'
+import reportWebVitals from '../reportWebVitals'
 
 ReactDOM.render(
     <React.StrictMode>
