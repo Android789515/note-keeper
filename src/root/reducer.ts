@@ -1,11 +1,6 @@
-import { State } from './store'
+import { Action } from '../types/reduxTypes'
 
-interface Action {
-    type: string
-    payload: any
-}
-
-const reducer = (state: State = {}, action: Action) => {
+const reducer = (state = {}, action: Action) => {
     switch (action.type) {
         default:
             return state
