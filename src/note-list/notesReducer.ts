@@ -2,7 +2,7 @@ import { v4 as uuid } from 'uuid'
 
 import { Color, ID, Text } from '../types/types'
 import { Action } from '../types/reduxTypes'
-import { Note, UpdatableNoteParts } from '../types/noteTypes'
+import { Note, NoteColors, UpdatableNoteParts } from '../types/noteTypes'
 
 enum Actions {
     create = 'notes/create',
@@ -10,8 +10,12 @@ enum Actions {
     update = 'notes/update'
 }
 
-const createNote = ({ body, color }: Note) => {
-    const payload = { id: uuid(), body, color }
+const createNote = ({ text, color }: Note) => {
+    const payload = {
+        id: uuid(),
+        text: text,
+        color: color || NoteColors.default
+    }
 
     return { type: Actions.create, payload }
 }

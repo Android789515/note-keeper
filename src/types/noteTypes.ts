@@ -1,10 +1,13 @@
 import { ID, Text, Color } from './types'
 
+export enum NoteColors {
+    default = '#fff'
+}
 
 export interface Note {
     id: ID
-    body: Text
-    color: Color
+    text: Text
+    color?: Color
 }
 
 export enum UpdatableNoteParts {
