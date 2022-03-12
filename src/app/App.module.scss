@@ -1,7 +1,12 @@
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  $side-space: minmax(1em, 1fr);
+  grid-auto-rows: max-content;
+  grid-template-columns: $side-space auto $side-space;
 
   min-height: 100vh;
+}
+
+.app > * {
+  grid-column: 2 / -2;
 }

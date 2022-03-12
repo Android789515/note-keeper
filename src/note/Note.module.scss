@@ -1,0 +1,20 @@
+$rounded-corners: 10px;
+
+.note {
+  min-height: 10em;
+
+  border-radius: $rounded-corners;
+}
+
+.noteHeader {
+  height: 1.5em;
+
+  border-top-left-radius: $rounded-corners;
+  border-top-right-radius: $rounded-corners;
+}
+
+.noteBody {
+  margin: 0;
+
+  padding: .5em 1em;
+}

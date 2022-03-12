@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-import notes from './note-list/notesReducer'
+import notes from './notes/notesReducer'
 
 const reducer = combineReducers({ notes })
 

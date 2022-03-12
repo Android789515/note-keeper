@@ -3,7 +3,8 @@ import { Dispatch } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
 
 import { Key, Keys } from '../types/types'
-import { createNote } from '../note-list/notesReducer'
+import { NoteColors } from '../types/noteTypes'
+import { createNote } from '../notes/notesReducer'
 
 interface ChangeEvent {
     target: {
@@ -33,7 +34,8 @@ const useCreateNote = (dispatch: Dispatch) => {
     const dispatchNote = () => {
         dispatch(createNote({
             id: uuid(),
-            text: noteText
+            text: noteText,
+            color: NoteColors.default
         }))
     }
 
