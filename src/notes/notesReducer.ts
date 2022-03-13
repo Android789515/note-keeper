@@ -1,4 +1,4 @@
-import { Color, ID, Text } from '../types/types'
+import { Color, NoteID, Text } from '../types/types'
 import { Action } from '../types/reduxTypes'
 import { Note, UpdatableNoteParts } from '../types/noteTypes'
 
@@ -13,12 +13,12 @@ const createNote = (note: Note) => {
     return { type: Actions.create, payload: note }
 }
 
-const deleteNote = (ID: ID) => {
+const deleteNote = (ID: NoteID) => {
 
     return { type: Actions.delete, payload: ID }
 }
 
-const updateNote = (id: ID, partOfNote: UpdatableNoteParts, content: Text | Color) => {
+const updateNote = (id: NoteID, partOfNote: UpdatableNoteParts, content: Text | Color) => {
 
     return { type: Actions.update, payload: { id, partOfNote, content } }
 }

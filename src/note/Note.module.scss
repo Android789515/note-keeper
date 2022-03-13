@@ -1,16 +1,45 @@
+@use '../mixins';
+
 $rounded-corners: 10px;
 
 .note {
   min-height: 10em;
 
+  margin-bottom: 1em;
   border-radius: $rounded-corners;
+
+  transform: scale(0) translateX(0);
+  transition: transform 250ms;
+}
+
+.noteOnMount {
+  transform: scale(1);
+}
+
+.noteOnDestroy {
+  transform: translateX(200%);
 }
 
 .noteHeader {
+  display: flex;
+  justify-content: end;
+
   height: 1.5em;
 
   border-top-left-radius: $rounded-corners;
   border-top-right-radius: $rounded-corners;
+}
+
+.closeButton {
+  @include mixins.unstyled-button;
+  @include mixins.clickable;
+
+  font-weight: 600;
+
+  display: inline-block;
+
+  margin: 0 0 0 auto;
+  padding-right: .5em;
 }
 
 .noteBody {

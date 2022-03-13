@@ -20,7 +20,7 @@ const Notes = () => {
     })
 
     return (
-        <ul className={`${styles.layout} unstyled-ul`} role='list'>
+        <ul className={styles.layout} role='list'>
             {noteComponents}
         </ul>
     )

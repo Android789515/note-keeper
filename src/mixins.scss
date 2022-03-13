@@ -1,0 +1,15 @@
+@mixin unstyled-ul {
+  list-style: none;
+
+  padding: 0;
+}
+
+@mixin unstyled-button {
+  padding: 0;
+  background: 0;
+  border: 0;
+}
+
+@mixin clickable {
+  cursor: pointer;
+}
