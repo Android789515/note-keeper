@@ -8,11 +8,14 @@ const useIntoOutro = (introClass: CSS_Class, outroClass: CSS_Class) => {
     const applyIntroClass = () => {
         setTimeout(() => {
             updateAnimationClass(introClass)
-        }, 250)
+        }, 125)
     }
 
-    const applyOutroClass = () => {
+    // Unmount function that removes the element from the DOM
+    type UnMounter = () => void
+    const applyOutroClass = (unMounter: UnMounter) => {
         updateAnimationClass(outroClass)
+        setTimeout(unMounter, 600)
     }
 
     return {

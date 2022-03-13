@@ -9,7 +9,7 @@ $rounded-corners: 10px;
   border-radius: $rounded-corners;
 
   transform: scale(0) translateX(0);
-  transition: transform 250ms;
+  transition: transform 500ms;
 }
 
 .noteOnMount {

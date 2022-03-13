@@ -28,10 +28,8 @@ const Note = ({ note }: Props) => {
         applyOutroClass
     } = useIntoOutro(noteOnMount, noteOnDestroy)
 
-    const deleteNoteAfterOutro = () => {
-        applyOutroClass()
-        setTimeout(deleteNote, 250)
-    }
+    const deleteNoteAfterOutro = () => applyOutroClass(deleteNote)
+
     useEffect(applyIntroClass, [])
 
     return (
