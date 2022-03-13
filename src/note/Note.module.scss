@@ -43,6 +43,8 @@ $rounded-corners: 10px;
 }
 
 .noteBody {
+  word-break: break-word;
+
   margin: 0;
 
   padding: .5em 1em;

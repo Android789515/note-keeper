@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux'
 
+import styles from './CreateNoteBox.module.scss'
+
 import useCreateNote from './useCreateNote'
 
 const CreateNoteBox = () => {
@@ -9,7 +11,9 @@ const CreateNoteBox = () => {
     return (
         <div title='Create note'>
             <input
+                className={styles.input}
                 type='text'
+                placeholder='Take a note'
                 name='Create note'
                 aria-label='Create note'
                 role='textbox'
