@@ -23,11 +23,14 @@ const useCreateNote = (dispatch: Dispatch) => {
         updateNoteText(inputtedText)
     }
 
+    const clearNoteTex = () => updateNoteText('')
+
     const submitOnEnter = ({ key }: KeydownEvent) => {
         const wasEnterKeyPressed = key === Keys.enter
 
         if (wasEnterKeyPressed) {
             dispatchNote()
+            clearNoteTex()
         }
     }
 

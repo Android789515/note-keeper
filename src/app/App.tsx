@@ -3,6 +3,7 @@ import styles from './App.module.scss'
 import Title from '../title/Title'
 import CreateNoteBox from '../create-note-box/CreateNoteBox'
 import Notes from '../notes/Notes'
+import ModalContainer from '../modal-container/ModalContainer'
 
 const App = () => {
     return (
@@ -12,6 +13,8 @@ const App = () => {
             <CreateNoteBox />
 
             <Notes />
+
+            <ModalContainer />
         </div>
     )
 }
