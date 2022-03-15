@@ -19,6 +19,8 @@ interface KeydownEvent {
 const useCreateNote = (dispatch: Dispatch) => {
     const [ noteText, updateNoteText ] = useState('')
 
+    const getNoteText = () => noteText
+
     const setNoteText = ({ target: { value: inputtedText } }: ChangeEvent) => {
         updateNoteText(inputtedText)
     }
@@ -43,7 +45,7 @@ const useCreateNote = (dispatch: Dispatch) => {
     }
 
     return {
-        noteText,
+        getNoteText,
         setNoteText,
         submitOnEnter
     }

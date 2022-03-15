@@ -12,12 +12,15 @@ import './index.css'
 
 import App from './app/App'
 import reportWebVitals from './reportWebVitals'
+import { ModalProvider } from './modal-container/modalContext'
 
 ReactDOM.render(
     <React.StrictMode>
         <HashRouter>
             <Provider store={store}>
-                <App/>
+                <ModalProvider>
+                    <App/>
+                </ModalProvider>
             </Provider>
         </HashRouter>
     </React.StrictMode>,

@@ -5,6 +5,8 @@ type CSS_Class = string
 const useIntoOutro = (introClass: CSS_Class, outroClass: CSS_Class) => {
     const [ animationClass, updateAnimationClass ] = useState('')
 
+    const getAnimationClass = () => animationClass
+
     // TODO - check out request animation frame
     const applyIntroClass = () => {
         setTimeout(() => {
@@ -20,7 +22,7 @@ const useIntoOutro = (introClass: CSS_Class, outroClass: CSS_Class) => {
     }
 
     return {
-        animationClass,
+        getAnimationClass,
         applyIntroClass,
         applyOutroClass
     }

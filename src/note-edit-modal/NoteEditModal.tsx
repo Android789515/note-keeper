@@ -1,7 +1,9 @@
+import styles from './NoteEditModal.module.scss'
+
 const NoteEditModal = () => {
     return (
-        <div>
-
+        <div className={styles.modal}>
+            <p>Hello!</p>
         </div>
     )
 }

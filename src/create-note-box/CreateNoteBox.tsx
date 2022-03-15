@@ -6,7 +6,7 @@ import useCreateNote from './useCreateNote'
 
 const CreateNoteBox = () => {
     const dispatch = useDispatch()
-    const { noteText, setNoteText, submitOnEnter } = useCreateNote(dispatch)
+    const { getNoteText, setNoteText, submitOnEnter } = useCreateNote(dispatch)
 
     return (
         <div title='Create note'>
@@ -17,7 +17,7 @@ const CreateNoteBox = () => {
                 name='Create note'
                 aria-label='Create note'
                 role='textbox'
-                value={noteText}
+                value={getNoteText()}
                 onChange={setNoteText}
                 onKeyDown={submitOnEnter}
             />

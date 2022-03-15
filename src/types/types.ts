@@ -5,5 +5,6 @@ export type Color = string
 export type Key = string
 
 export enum Keys {
-    enter = 'Enter'
+    enter = 'Enter',
+    escape = 'Escape'
 }
