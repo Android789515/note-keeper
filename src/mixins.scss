@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+@mixin unstyled-textarea {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
 @mixin unstyled-button {
   padding: 0;
   background: 0;

@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
 import Color from 'color'
 
 import { Note as NoteType } from '../types/noteTypes'
+import { modal } from '../modal-container/modalContext'
 import useIntoOutro from '../utils/useIntoOutro'
 import useEditNote from './useEditNote'
-import { modal } from '../modal-container/modalContext'
 
 import styles from './Note.module.scss'
 
@@ -21,8 +20,7 @@ const Note = ({ note }: Props) => {
     const baseNoteColor = Color(color)
     const headerColor = baseNoteColor.saturate(.6)
 
-    const dispatch = useDispatch()
-    const { deleteNote } = useEditNote(note.id, dispatch)
+    const { deleteNote } = useEditNote(note)
 
     const { noteOnMount, noteOnDestroy } = styles
     const {
@@ -36,8 +34,7 @@ const Note = ({ note }: Props) => {
     useEffect(applyIntroClass, [])
 
     const { setModal } = useContext(modal)
-    const openEditModal = () => setModal!(NoteEditModal())
-
+    const openEditModal = () => setModal!(<NoteEditModal note={note} />)
 
     const closeButton = useRef<HTMLButtonElement>(null)
     const handleNoteClick = ({ target }: React.MouseEvent) => {

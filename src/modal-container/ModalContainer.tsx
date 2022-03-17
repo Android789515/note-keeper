@@ -3,6 +3,8 @@ import { useContext, useEffect } from 'react'
 import { modal } from './modalContext'
 import useModalClose from './useModalClose'
 
+import styles from './ModalContainer.module.scss'
+
 const ModalContainer = () => {
     const { getCurrentModal, setModal } = useContext(modal)
     const closeModal = () => setModal!(undefined)
@@ -19,7 +21,7 @@ const ModalContainer = () => {
     useEffect(listenForEscPressOnBody, [])
 
     return (
-        <div>
+        <div className={styles.modalContainer}>
             {getCurrentModal!()}
         </div>
     )

@@ -12,10 +12,10 @@ export enum NoteColors {
 export interface Note {
     id: NoteID
     text: Text
-    color?: Color
+    color: Color
 }
 
 export enum UpdatableNoteParts {
-    body = 'body',
+    text = 'text',
     color = 'color'
 }

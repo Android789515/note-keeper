@@ -1,14 +1,9 @@
 import { useSelector } from 'react-redux'
 
-import styles from './Notes.module.scss'
-
-import { Note as NoteType } from '../types/noteTypes'
-
+import { State } from '../types/reduxTypes'
 import Note from '../note/Note'
 
-interface State {
-    notes: NoteType[]
-}
+import styles from './Notes.module.scss'
 
 const Notes = () => {
     const notes = useSelector(({ notes }: State) => notes)

@@ -53,5 +53,5 @@ const notesReducer = (notes: Note[] = [], action: Action) => {
     }
 }
 
-export { createNote, deleteNote }
+export { createNote, updateNote, deleteNote }
 export default notesReducer
