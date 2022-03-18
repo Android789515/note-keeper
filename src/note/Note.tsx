@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useRef } from 'react'
-import Color from 'color'
+import React, { useContext, useEffect } from 'react'
 
 import { Note as NoteType } from '../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
 import useIntoOutro from '../utils/useIntoOutro'
-import useEditNote from './useEditNote'
 
 import styles from './Note.module.scss'
 
 import NoteEditModal from '../note-edit-modal/NoteEditModal'
+import NoteHeader from './note-header/NoteHeader'
+import useEditNote from './useEditNote'
 
 interface Props {
     note: NoteType
@@ -17,58 +17,24 @@ interface Props {
 const Note = ({ note }: Props) => {
     const { text, color } = note
 
-    const baseNoteColor = Color(color)
-    const headerColor = baseNoteColor.saturate(.6)
+    const { noteOnMount, noteOnDestroy } = styles
+    const { getAnimationClass, applyIntroClass, applyOutroClass } = useIntoOutro(noteOnMount, noteOnDestroy)
+    useEffect(applyIntroClass, [])
 
     const { deleteNote } = useEditNote(note)
-
-    const { noteOnMount, noteOnDestroy } = styles
-    const {
-        getAnimationClass,
-        applyIntroClass,
-        applyOutroClass
-    } = useIntoOutro(noteOnMount, noteOnDestroy)
-
     const deleteNoteAfterOutro = () => applyOutroClass(deleteNote)
-
-    useEffect(applyIntroClass, [])
 
     const { setModal } = useContext(modal)
     const openEditModal = () => setModal!(<NoteEditModal note={note} />)
-
-    const closeButton = useRef<HTMLButtonElement>(null)
-    const handleNoteClick = ({ target }: React.MouseEvent) => {
-        const isNoteRendered = closeButton !== null
-        const whatWasClicked = target as HTMLElement
-
-        if (isNoteRendered) {
-            const wasCloseButtonClicked = closeButton.current!.contains(whatWasClicked)
-            if (!wasCloseButtonClicked) {
-                openEditModal()
-            }
-        }
-    }
 
     return (
         <li
             className={`${styles.note} ${getAnimationClass()}`}
             style={{ background: color }}
-            onClick={handleNoteClick}
         >
-            <header
-                className={styles.noteHeader}
-                style={{ background: headerColor.hex() }}
-            >
-                <button
-                    className={styles.closeButton}
-                    onClick={deleteNoteAfterOutro}
-                    ref={closeButton}
-                >
-                    x
-                </button>
-            </header>
+            <NoteHeader note={note} deleteNote={deleteNoteAfterOutro} />
 
-            <p className={styles.noteBody}>{text}</p>
+            <p className={styles.noteBody} onClick={openEditModal}>{text}</p>
         </li>
     )
 }
