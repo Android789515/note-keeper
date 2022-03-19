@@ -2,6 +2,7 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -25,4 +26,8 @@
   resize: none;
 
   height: 100%;
+}
+
+.howToSaveText {
+  color: #fff;
 }

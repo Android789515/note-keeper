@@ -45,6 +45,10 @@ const NoteEditModal = ({ note }: Props) => {
                     />
                 </p>
             </div>
+
+            <p className={styles.howToSaveText}>
+                Press escape when done
+            </p>
         </div>
     )
 }
