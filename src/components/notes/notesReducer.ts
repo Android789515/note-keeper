@@ -1,6 +1,6 @@
-import { Color, NoteID, Text } from '../types/types'
-import { Action } from '../types/reduxTypes'
-import { Note, UpdatableNoteParts } from '../types/noteTypes'
+import { Color, NoteID, Text } from '../../types/types'
+import { Action } from '../../types/reduxTypes'
+import { Note, UpdatableNoteParts } from '../../types/noteTypes'
 
 enum Actions {
     create = 'notes/create',

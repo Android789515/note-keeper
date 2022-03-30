@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 
-import { Note as NoteType } from '../types/noteTypes'
+import { Note as NoteType } from '../../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
-import useIntoOutro from '../utils/useIntoOutro'
+import useIntoOutro from '../../utils/useIntoOutro'
 
 import styles from './Note.module.scss'
 

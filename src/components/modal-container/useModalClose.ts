@@ -1,4 +1,4 @@
-import { Keys } from '../types/types'
+import { Keys } from '../../types/types'
 
 const useModalClose = (closeFunction: () => void) => {
     const closeModalOnEscPress = ({ key }: KeyboardEvent) => {

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { Note, UpdatableNoteParts } from '../types/noteTypes'
+import { Note, UpdatableNoteParts } from '../../types/noteTypes'
 import { deleteNote as deleteAction, updateNote as updateAction } from '../notes/notesReducer'
 
 type TextTyped = string

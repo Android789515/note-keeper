@@ -1,6 +1,6 @@
 import Color from 'color'
 
-import { Note } from '../../types/noteTypes'
+import { Note } from '../../../types/noteTypes'
 
 import styles from '../Note.module.scss'
 

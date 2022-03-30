@@ -1,8 +1,12 @@
-@use '../mixins';
+@use 'sass:list';
+
+@use '../../breakpoints';
+@use '../../mixins';
 
 $rounded-corners: 10px;
 
 .note {
+  min-width: 13.0416875em;
   max-width: 20em;
   min-height: 10em;
 
@@ -18,7 +22,7 @@ $rounded-corners: 10px;
 }
 
 .noteOnDestroy {
-  transform: translateX(200%);
+  transform: translateX(100vw);
 }
 
 .noteHeader {
@@ -51,4 +55,21 @@ $rounded-corners: 10px;
 
   padding: .5em 1em;
   margin: 0;
+}
+
+$gridLayout: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $gridLayout) {
+  .note {
+    margin: 0 1em 0 0;
+
+    transform: scale(0) translateY(0);
+  }
+
+  .noteOnMount {
+    transform: scale(1);
+  }
+
+  .noteOnDestroy {
+    transform: translateY(-100vh);
+  }
 }

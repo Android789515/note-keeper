@@ -1,0 +1,20 @@
+@use 'sass:list';
+
+@use '../../breakpoints';
+@use '../../mixins';
+
+.layout {
+  @include mixins.unstyled-ul;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+$gridLayout: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $gridLayout) {
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+  }
+}

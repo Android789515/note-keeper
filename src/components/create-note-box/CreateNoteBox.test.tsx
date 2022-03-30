@@ -1,9 +1,9 @@
 import { screen, render, fireEvent } from '@testing-library/react'
 import { Provider } from 'react-redux'
 
-import store from '../store'
-import { Keys } from '../types/types'
-import { NoteColors } from '../types/noteTypes'
+import store from '../../store'
+import { Keys } from '../../types/types'
+import { NoteColors } from '../../types/noteTypes'
 
 import CreateNoteBox from './CreateNoteBox'
 

@@ -1,0 +1,24 @@
+@use 'sass:list';
+
+@use '../../breakpoints';
+
+.app {
+  display: grid;
+  $side-space: minmax(1em, 1fr);
+  grid-auto-rows: max-content;
+  grid-template-columns: $side-space auto $side-space;
+
+  min-height: 100vh;
+}
+
+.app > * {
+  grid-column: 2 / -2;
+}
+
+$increaseContentSpace: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $increaseContentSpace) {
+  .app {
+    $side-space: minmax(1em, 1fr);
+    grid-template-columns: $side-space 90% $side-space;
+  }
+}

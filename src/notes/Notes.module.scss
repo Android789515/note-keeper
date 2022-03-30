@@ -1,8 +1,0 @@
-@use '../mixins';
-
-.layout {
-  @include mixins.unstyled-ul;
-
-  display: flex;
-  flex-direction: column-reverse;
-}

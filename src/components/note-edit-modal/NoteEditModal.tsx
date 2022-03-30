@@ -1,8 +1,8 @@
 import React from 'react'
 import Color from 'color'
 
-import { Keys } from '../types/types'
-import { Note } from '../types/noteTypes'
+import { Keys } from '../../types/types'
+import { Note } from '../../types/noteTypes'
 import useEditNote from '../note/useEditNote'
 
 import styles from './NoteEditModal.module.scss'

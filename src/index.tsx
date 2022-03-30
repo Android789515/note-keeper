@@ -10,9 +10,9 @@ import store from './store'
 
 import './index.css'
 
-import App from './app/App'
+import App from './components/app/App'
 import reportWebVitals from './reportWebVitals'
-import { ModalProvider } from './modal-container/modalContext'
+import { ModalProvider } from './components/modal-container/modalContext'
 
 ReactDOM.render(
     <React.StrictMode>

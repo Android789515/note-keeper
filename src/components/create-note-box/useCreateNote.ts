@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Dispatch } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
 
-import { Key, Keys } from '../types/types'
-import { NoteColors } from '../types/noteTypes'
+import { Key, Keys } from '../../types/types'
+import { NoteColors } from '../../types/noteTypes'
 import { createNote } from '../notes/notesReducer'
 
 interface ChangeEvent {

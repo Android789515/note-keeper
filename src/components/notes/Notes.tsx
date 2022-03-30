@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-import { State } from '../types/reduxTypes'
+import { State } from '../../types/reduxTypes'
 import Note from '../note/Note'
 
 import styles from './Notes.module.scss'

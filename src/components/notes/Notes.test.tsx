@@ -1,8 +1,8 @@
 import { screen, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 
-import store from '../store'
-import { Note, NoteColors } from '../types/noteTypes'
+import store from '../../store'
+import { Note, NoteColors } from '../../types/noteTypes'
 import { createNote } from './notesReducer'
 
 import Notes from './Notes'
