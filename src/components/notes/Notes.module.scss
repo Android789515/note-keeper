@@ -14,7 +14,7 @@
 $gridLayout: list.nth(breakpoints.$main-breakpoints, 1);
 @media (min-width: $gridLayout) {
   .layout {
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
   }
 }
