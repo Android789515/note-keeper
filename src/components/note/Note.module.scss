@@ -57,8 +57,8 @@ $rounded-corners: 10px;
   margin: 0;
 }
 
-$gridLayout: list.nth(breakpoints.$main-breakpoints, 1);
-@media (min-width: $gridLayout) {
+$notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $notesWrap) {
   .note {
     margin: 0 1em 1em 0;
 
@@ -71,5 +71,16 @@ $gridLayout: list.nth(breakpoints.$main-breakpoints, 1);
 
   .noteOnDestroy {
     transform: translateY(-100vh);
+  }
+}
+
+$notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 2);
+@media (min-width: $notesSizeIncrease) {
+  .note {
+    min-width: 16.0416875em;
+    max-width: 23em;
+    min-height: 13em;
+
+    margin: 0 2em 2em 0;
   }
 }

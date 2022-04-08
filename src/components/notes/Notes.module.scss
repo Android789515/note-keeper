@@ -11,8 +11,8 @@
   justify-content: center;
 }
 
-$gridLayout: list.nth(breakpoints.$main-breakpoints, 1);
-@media (min-width: $gridLayout) {
+$notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $notesWrap) {
   .layout {
     flex-direction: row;
     flex-wrap: wrap-reverse;
