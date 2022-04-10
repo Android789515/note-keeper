@@ -14,7 +14,7 @@
   display: grid;
   grid-template-rows: max-content 1fr;
 
-  height: min-content;
+  height: 18em;
 
   transform: scale(1);
   transition: none;
@@ -23,11 +23,17 @@
 .editableNoteText {
   @include mixins.unstyled-textarea;
 
+  font-size: 1.2rem;
+
   resize: none;
 
+  width: 100%;
   height: 100%;
 }
 
 .howToSaveText {
+  font-size: 1.1rem;
   color: #fff;
+
+  text-shadow: 1px 1px #333;
 }
