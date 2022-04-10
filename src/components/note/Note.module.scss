@@ -64,7 +64,7 @@ $notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
     transform: scale(0) translateY(0);
   }
 
-  .note:not(.note:only-child) {
+  .note:not(.note:only-of-type) {
     margin: 0 1em 1em 0;
   }
 
@@ -83,7 +83,7 @@ $notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 2);
     min-width: 13.0416875em;
   }
 
-  .note:not(.note:only-child) {
+  .note:not(.note:only-of-type) {
     margin: 0 2em 2em 0;
   }
 }
