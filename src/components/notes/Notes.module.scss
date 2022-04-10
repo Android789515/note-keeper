@@ -17,7 +17,5 @@ $notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
     flex-direction: row;
     flex-wrap: wrap-reverse;
     align-items: flex-end;
-
-    margin-left: 1em;
   }
 }

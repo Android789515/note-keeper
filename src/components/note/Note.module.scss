@@ -61,9 +61,11 @@ $notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
   .note {
     aspect-ratio: 1/.7;
 
-    margin: 0 1em 1em 0;
-
     transform: scale(0) translateY(0);
+  }
+
+  .note:not(.note:only-child) {
+    margin: 0 1em 1em 0;
   }
 
   .noteOnMount {
@@ -79,7 +81,9 @@ $notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 2);
 @media (min-width: $notesSizeIncrease) {
   .note {
     min-width: 13.0416875em;
+  }
 
+  .note:not(.note:only-child) {
     margin: 0 2em 2em 0;
   }
 }
