@@ -1,3 +1,15 @@
+.createNoteBox {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: max-content;
+  justify-content: center;
+}
+
+.createNoteBox > * {
+  grid-row: 1;
+  grid-column: 1;
+}
+
 .input {
   display: block;
 

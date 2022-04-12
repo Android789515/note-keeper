@@ -9,6 +9,8 @@ export enum NoteColors {
     red = '#ff7676'
 }
 
+export type NoteColor = [string, string]
+
 export interface Note {
     id: NoteID
     text: Text

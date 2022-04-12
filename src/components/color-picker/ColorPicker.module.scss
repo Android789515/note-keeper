@@ -1,0 +1,32 @@
+@use '../../mixins';
+
+.colorPicker {
+  justify-self: end;
+  align-self: center;
+
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: max-content;
+}
+
+.colorDot {
+  @include mixins.clickable;
+
+  grid-row: 1;
+  grid-column: 1;
+
+  width: 1em;
+  height: 1em;
+
+  margin-right: .5em;
+
+  border-radius: 50%;
+}
+
+.colorPicker:hover {
+  grid-auto-columns: max-content;
+
+  .colorDot {
+    grid-column: revert;
+  }
+}
