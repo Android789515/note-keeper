@@ -1,14 +1,15 @@
-import { useState } from 'react'
-
 import styles from './ColorPicker.module.scss'
 
-import { NoteColors, NoteColor } from '../../types/noteTypes'
-import useColorPicker from './useColorPicker'
+import { NoteColors } from '../../types/noteTypes'
+import { Color } from '../../types/types'
 
-const ColorPicker = () => {
-    const { getCurrentColor, setCurrentColor } = useColorPicker(NoteColors.default)
+interface Props {
+    getCurrentColor: () => Color
+    setCurrentColor: (color: Color) => void
+}
 
-    const colors = Object.entries(NoteColors).map(([name, color]: NoteColor) => {
+const ColorPicker = ({ getCurrentColor, setCurrentColor }: Props) => {
+    const colors = Object.entries(NoteColors).map(([name, color]: [string, string]) => {
         const isCurrentColor = getCurrentColor() === color
         return (
             <div

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Dispatch } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
 
-import { Key, Keys } from '../../types/types'
+import { Color, Key, Keys } from '../../types/types'
 import { NoteColors } from '../../types/noteTypes'
 import { createNote } from '../notes/notesReducer'
 
@@ -16,7 +16,7 @@ interface KeydownEvent {
     key: Key
 }
 
-const useCreateNote = (dispatch: Dispatch) => {
+const useCreateNote = (currentColor: Color, dispatch: Dispatch) => {
     const [ noteText, updateNoteText ] = useState('')
 
     const getNoteText = () => noteText
@@ -40,7 +40,7 @@ const useCreateNote = (dispatch: Dispatch) => {
         dispatch(createNote({
             id: uuid(),
             text: noteText,
-            color: NoteColors.default
+            color: currentColor
         }))
     }
 

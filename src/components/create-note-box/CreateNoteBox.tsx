@@ -2,13 +2,17 @@ import { useDispatch } from 'react-redux'
 
 import styles from './CreateNoteBox.module.scss'
 
+import { NoteColors } from '../../types/noteTypes'
 import useCreateNote from './useCreateNote'
 
 import ColorPicker from '../color-picker/ColorPicker'
+import useColorPicker from '../color-picker/useColorPicker'
 
 const CreateNoteBox = () => {
+    const { getCurrentColor, setCurrentColor } = useColorPicker(NoteColors.default)
+
     const dispatch = useDispatch()
-    const { getNoteText, setNoteText, submitOnEnter } = useCreateNote(dispatch)
+    const { getNoteText, setNoteText, submitOnEnter } = useCreateNote(getCurrentColor(), dispatch)
 
     return (
         <div title='Create note' className={styles.createNoteBox}>
@@ -24,7 +28,10 @@ const CreateNoteBox = () => {
                 onKeyDown={submitOnEnter}
             />
 
-            <ColorPicker />
+            <ColorPicker
+                getCurrentColor={getCurrentColor}
+                setCurrentColor={setCurrentColor}
+            />
         </div>
     )
 }
