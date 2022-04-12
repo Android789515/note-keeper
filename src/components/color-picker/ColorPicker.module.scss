@@ -7,6 +7,13 @@
   display: grid;
   grid-template-rows: max-content;
   grid-template-columns: max-content;
+  grid-column-gap: .5em;
+
+  background: #fff;
+  padding: 0 .5em;
+  margin-right: .125em;
+
+  transition: grid-template-columns 250ms;
 }
 
 .colorDot {
@@ -15,12 +22,18 @@
   grid-row: 1;
   grid-column: 1;
 
+  visibility: hidden;
+
   width: 1em;
   height: 1em;
 
-  margin-right: .5em;
-
   border-radius: 50%;
+}
+
+.currentColor {
+  z-index: 1;
+
+  visibility: visible;
 }
 
 .colorPicker:hover {
@@ -28,5 +41,7 @@
 
   .colorDot {
     grid-column: revert;
+
+    visibility: visible;
   }
 }
