@@ -56,6 +56,10 @@ $rounded-corners: 10px;
   margin: 0;
 }
 
+.noteBody:focus {
+  outline: solid lightblue;
+}
+
 $notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
 @media (min-width: $notesWrap) {
   .note {

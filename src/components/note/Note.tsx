@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react'
 import { Note as NoteType } from '../../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
 import useIntoOutro from '../../utils/useIntoOutro'
+import useEnterAsClick from '../../utils/useEnterAsClick'
 
 import styles from './Note.module.scss'
 
@@ -27,6 +28,8 @@ const Note = ({ note }: Props) => {
     const { setModal } = useContext(modal)
     const openEditModal = () => setModal!(<NoteEditModal note={note} />)
 
+    const { clickOnEnterPress } = useEnterAsClick()
+
     return (
         <li
             className={`${styles.note} ${getAnimationClass()}`}
@@ -34,7 +37,14 @@ const Note = ({ note }: Props) => {
         >
             <NoteHeader note={note} deleteNote={deleteNoteAfterOutro} />
 
-            <p className={styles.noteBody} onClick={openEditModal}>{text}</p>
+            <p
+                className={styles.noteBody}
+                tabIndex={0}
+                onKeyDown={clickOnEnterPress}
+                onClick={openEditModal}
+            >
+                {text}
+            </p>
         </li>
     )
 }

@@ -14,11 +14,13 @@
   margin-right: .125em;
 }
 
+.colorPicker:focus-within,
 .colorPicker:hover {
   grid-auto-columns: max-content;
 }
 
 // Color dots
+.colorPicker:focus-within > *,
 .colorPicker:hover > * {
   grid-column: revert;
 
