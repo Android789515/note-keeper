@@ -1,0 +1,25 @@
+@use '../../../mixins';
+
+.colorDot {
+  @include mixins.clickable;
+
+  grid-row: 1;
+  grid-column: 1;
+
+  visibility: hidden;
+
+  width: 1em;
+  height: 1em;
+
+  border-radius: 50%;
+}
+
+.currentColor {
+  z-index: 1;
+
+  visibility: visible;
+}
+
+.colorDot:active {
+  outline: solid lightblue;
+}

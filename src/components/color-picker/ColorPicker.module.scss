@@ -14,32 +14,13 @@
   margin-right: .125em;
 }
 
-.colorDot {
-  @include mixins.clickable;
-
-  grid-row: 1;
-  grid-column: 1;
-
-  visibility: hidden;
-
-  width: 1em;
-  height: 1em;
-
-  border-radius: 50%;
-}
-
-.currentColor {
-  z-index: 1;
-
-  visibility: visible;
-}
-
 .colorPicker:hover {
   grid-auto-columns: max-content;
+}
 
-  .colorDot {
-    grid-column: revert;
+// Color dots
+.colorPicker:hover > * {
+  grid-column: revert;
 
-    visibility: visible;
-  }
+  visibility: visible;
 }

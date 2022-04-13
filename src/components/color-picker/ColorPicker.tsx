@@ -1,7 +1,11 @@
+import { v4 as uuid } from 'uuid'
+
 import styles from './ColorPicker.module.scss'
 
 import { NoteColors } from '../../types/noteTypes'
 import { Color } from '../../types/types'
+
+import ColorDot from './color-dot/ColorDot'
 
 interface Props {
     getCurrentColor: () => Color
@@ -12,16 +16,17 @@ const ColorPicker = ({ getCurrentColor, setCurrentColor }: Props) => {
     const colors = Object.entries(NoteColors).map(([name, color]: [string, string]) => {
         const isCurrentColor = getCurrentColor() === color
         return (
-            <div
-                className={`${styles.colorDot} ${isCurrentColor ? styles.currentColor : ''}`}
-                style={{ backgroundColor: color }}
-                onClick={() => setCurrentColor(color)}
+            <ColorDot
+                key={uuid()}
+                color={color}
+                isCurrentColor={isCurrentColor}
+                setCurrentColor={setCurrentColor}
             />
         )
     })
 
     return (
-        <div className={styles.colorPicker}>
+        <div className={`${styles.colorPicker}`}>
             {colors}
         </div>
     )
