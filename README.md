@@ -7,4 +7,4 @@
 
 # And the note edit modal
 
-<img src='screenshots/NoteKeeper-Edit.png' alt='Note edit modal' style='display: block; margin: auto'>
+<img src='screenshots/NoteKeeper-EditModal.png' alt='Note edit modal' style='display: block; margin: auto'>
