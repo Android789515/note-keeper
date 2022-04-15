@@ -10,8 +10,13 @@
   grid-column: 1;
 }
 
+$rounded-corners: 5px;
 .input {
   display: block;
 
+  padding: .25em;
   margin: auto;
+
+  border: solid #333 1px;
+  border-radius: $rounded-corners;
 }
