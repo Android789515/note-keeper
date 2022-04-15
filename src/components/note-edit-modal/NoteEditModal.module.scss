@@ -1,3 +1,6 @@
+@use 'sass:list';
+
+@use '../../breakpoints';
 @use '../../mixins';
 
 .container {
@@ -11,13 +14,19 @@
 }
 
 .modalNote {
-  display: grid;
-  grid-template-rows: max-content 1fr;
-
-  aspect-ratio: .75/.6;
+  max-width: 13.0416875em;
+  min-height: 15.0416875em;
 
   transform: scale(1);
   transition: none;
+}
+
+$notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $notesSizeIncrease) {
+  .modalNote {
+    min-width: 23.0416875em;
+    min-height: 25.0416875em;
+  }
 }
 
 .editableNoteText {

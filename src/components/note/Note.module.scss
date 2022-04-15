@@ -6,8 +6,11 @@
 $rounded-corners: 10px;
 
 .note {
-  aspect-ratio: .75/.6;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+
   min-width: 10.0416875em;
+  min-height: 13.0416875em;
 
   margin-bottom: 1em;
   border-radius: $rounded-corners;
@@ -50,8 +53,6 @@ $rounded-corners: 10px;
   word-break: break-word;
   white-space: pre-wrap;
 
-  height: 100%;
-
   padding: .5em 1em;
   margin: 0;
 }
@@ -63,7 +64,7 @@ $rounded-corners: 10px;
 $notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
 @media (min-width: $notesWrap) {
   .note {
-    aspect-ratio: 1/.7;
+    min-height: 9.0416875em;
 
     transform: scale(0) translateY(0);
   }
@@ -85,6 +86,7 @@ $notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 2);
 @media (min-width: $notesSizeIncrease) {
   .note {
     min-width: 13.0416875em;
+    min-height: 11.0416875em;
   }
 
   .note:not(.note:only-of-type) {
