@@ -10,8 +10,10 @@ $rounded-corners: 10px;
   grid-template-rows: max-content 1fr;
 
   min-width: 10.0416875em;
+  max-width: 15.5em;
   min-height: 13.0416875em;
 
+  padding-bottom: .25em;
   margin-bottom: 1em;
   border-radius: $rounded-corners;
 
@@ -64,6 +66,7 @@ $rounded-corners: 10px;
 $notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
 @media (min-width: $notesWrap) {
   .note {
+    max-width: revert;
     min-height: 9.0416875em;
 
     transform: scale(0) translateY(0);

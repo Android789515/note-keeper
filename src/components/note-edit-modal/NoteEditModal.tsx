@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Color from 'color'
 
 import { Keys } from '../../types/types'
@@ -16,7 +16,6 @@ const NoteEditModal = ({ note }: Props) => {
     const { getNoteText, setNoteText, updateNote } = useEditNote(note)
 
     const { color } = note
-
     const baseNoteColor = Color(color)
     const headerColor = baseNoteColor.saturate(.6)
 
@@ -26,6 +25,22 @@ const NoteEditModal = ({ note }: Props) => {
         if (wasEscapeKeyPressed) {
             updateNote()
         }
+    }
+
+    const textAreaRef = useRef<HTMLTextAreaElement>(null)
+    const setTextAreaSize = () => {
+        const { current: textArea } = textAreaRef
+
+        if (textArea) {
+            textArea.style.height = 'max-content'
+            textArea.style.height = textArea.scrollHeight + 'px'
+        }
+    }
+    useEffect(setTextAreaSize, [])
+
+    const handleChange = (event: React.ChangeEvent) => {
+        setNoteText(event)
+        setTextAreaSize()
     }
 
     return (
@@ -40,7 +55,8 @@ const NoteEditModal = ({ note }: Props) => {
                     <textarea
                         className={styles.editableNoteText}
                         value={getNoteText()}
-                        onChange={setNoteText}
+                        ref={textAreaRef}
+                        onChange={handleChange}
                         onKeyDown={submitNoteChangesOnClose}
                     />
                 </p>

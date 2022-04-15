@@ -1,22 +1,16 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Note, UpdatableNoteParts } from '../../types/noteTypes'
 import { deleteNote as deleteAction, updateNote as updateAction } from '../notes/notesReducer'
-
-type TextTyped = string
-interface ChangeEvent {
-    target: {
-        value: TextTyped
-    }
-}
 
 const useEditNote = (note: Note) => {
     const [ currentNoteText, updateNoteText ] = useState(note.text)
 
     const getNoteText = () => currentNoteText
 
-    const setNoteText = ({ target: { value: newNoteText } }: ChangeEvent) => {
+    const setNoteText = ({ target }: React.ChangeEvent) => {
+        const { value: newNoteText } = target as HTMLTextAreaElement
         updateNoteText(newNoteText)
     }
 
