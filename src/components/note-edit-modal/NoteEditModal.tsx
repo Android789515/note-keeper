@@ -4,6 +4,7 @@ import Color from 'color'
 import { Keys } from '../../types/types'
 import { Note } from '../../types/noteTypes'
 import useEditNote from '../note/useEditNote'
+import useAutoResizeTextarea from '../../utils/useAutoResizeTextarea'
 
 import styles from './NoteEditModal.module.scss'
 import noteStyles from '../note/Note.module.scss'
@@ -28,19 +29,12 @@ const NoteEditModal = ({ note }: Props) => {
     }
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null)
-    const setTextAreaSize = () => {
-        const { current: textArea } = textAreaRef
-
-        if (textArea) {
-            textArea.style.height = 'max-content'
-            textArea.style.height = textArea.scrollHeight + 'px'
-        }
-    }
-    useEffect(setTextAreaSize, [])
+    const { setTextAreaSize } = useAutoResizeTextarea()
+    useEffect(() => setTextAreaSize(textAreaRef.current), [])
 
     const handleChange = (event: React.ChangeEvent) => {
         setNoteText(event)
-        setTextAreaSize()
+        setTextAreaSize(textAreaRef.current)
     }
 
     return (
