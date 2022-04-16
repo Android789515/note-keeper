@@ -6,9 +6,9 @@ const Draggable: React.FC = ({ children }) => {
 
     return (
         <ReactDraggable nodeRef={nodeRef}>
-            <span ref={nodeRef}>
+            <li ref={nodeRef}>
                 {children}
-            </span>
+            </li>
         </ReactDraggable>
     )
 }

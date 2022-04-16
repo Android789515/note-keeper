@@ -10,8 +10,8 @@ interface Props {
 }
 
 const NoteHeader = ({ note, deleteNote }: Props) => {
-    const { color } = note
 
+    const { color } = note
     const baseNoteColor = Color(color)
     const headerColor = baseNoteColor.saturate(.6)
 

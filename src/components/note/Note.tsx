@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 
 import { Note as NoteType } from '../../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
@@ -31,7 +31,7 @@ const Note = ({ note }: Props) => {
     const { clickOnEnterPress } = useEnterAsClick()
 
     return (
-        <li
+        <span
             className={`${styles.note} ${getAnimationClass()}`}
             style={{ background: color }}
         >
@@ -45,7 +45,7 @@ const Note = ({ note }: Props) => {
             >
                 {text}
             </p>
-        </li>
+        </span>
     )
 }
 
