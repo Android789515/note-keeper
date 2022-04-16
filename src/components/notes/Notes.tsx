@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import Draggable from 'react-draggable'
 
 import { State } from '../../types/reduxTypes'
 import Note from '../note/Note'
@@ -10,7 +11,11 @@ const Notes = () => {
 
     const noteComponents = notes.map(note => {
         return (
-            <Note key={note.id} note={note} />
+            <Draggable>
+                <span>
+                    <Note key={note.id} note={note} />
+                </span>
+            </Draggable>
         )
     })
 
