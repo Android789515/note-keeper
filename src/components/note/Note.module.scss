@@ -30,6 +30,8 @@ $rounded-corners: 10px;
 }
 
 .noteHeader {
+  @include mixins.clickable;
+
   display: flex;
   justify-content: flex-end;
 
@@ -90,9 +92,11 @@ $notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 2);
   .note {
     min-width: 13.0416875em;
     min-height: 11.0416875em;
+
+    margin: 1em;
   }
 
-  .note:not(.note:only-of-type) {
-    margin: 0 2em 2em 0;
-  }
+  //.note:not(.note:only-of-type) {
+  //  margin: 0 2em 2em 0;
+  //}
 }
