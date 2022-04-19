@@ -13,9 +13,10 @@ import useEditNote from './useEditNote'
 
 interface Props {
     note: NoteType
+    setActiveNote: (note: NoteType) => void
 }
 
-const Note = ({ note }: Props) => {
+const Note = ({ note, setActiveNote }: Props) => {
     const { text, color } = note
 
     const { noteOnMount, noteOnDestroy } = styles
@@ -30,10 +31,14 @@ const Note = ({ note }: Props) => {
 
     const { clickOnEnterPress } = useEnterAsClick()
 
+    const setActiveWhenCreated = () => setActiveNote(note)
+    useEffect(setActiveWhenCreated, [])
+
     return (
-        <span
+        <li
             className={`${styles.note} ${getAnimationClass()}`}
             style={{ background: color }}
+            onMouseDown={() => setActiveNote(note)}
         >
             <NoteHeader note={note} deleteNote={deleteNoteAfterOutro} />
 
@@ -45,7 +50,7 @@ const Note = ({ note }: Props) => {
             >
                 {text}
             </p>
-        </span>
+        </li>
     )
 }
 

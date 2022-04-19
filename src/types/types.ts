@@ -1,4 +1,3 @@
-export type NoteID = string
 export type Text = string
 export type Color = string
 
