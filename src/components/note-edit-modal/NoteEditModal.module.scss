@@ -20,8 +20,8 @@
   transition: none;
 }
 
-$notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
-@media (min-width: $notesWrap) {
+$layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $layoutChange) {
   .modalNote {
     min-width: 23.0416875em;
     max-width: revert;

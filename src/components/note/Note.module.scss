@@ -14,7 +14,6 @@ $rounded-corners: 10px;
   min-height: 13.0416875em;
 
   padding-bottom: .25em;
-  margin-bottom: 1em;
   border-radius: $rounded-corners;
 
   transform: scale(0) translateX(0);
@@ -65,17 +64,12 @@ $rounded-corners: 10px;
   outline: solid lightblue;
 }
 
-$notesWrap: list.nth(breakpoints.$main-breakpoints, 1);
-@media (min-width: $notesWrap) {
+$layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $layoutChange) {
   .note {
-    max-width: revert;
     min-height: 9.0416875em;
 
     transform: scale(0) translateY(0);
-  }
-
-  .note:not(.note:only-of-type) {
-    margin: 0 1em 1em 0;
   }
 
   .noteOnMount {
@@ -91,12 +85,7 @@ $notesSizeIncrease: list.nth(breakpoints.$main-breakpoints, 2);
 @media (min-width: $notesSizeIncrease) {
   .note {
     min-width: 13.0416875em;
+    max-width: 13.5em;
     min-height: 11.0416875em;
-
-    margin: 1em;
   }
-
-  //.note:not(.note:only-of-type) {
-  //  margin: 0 2em 2em 0;
-  //}
 }

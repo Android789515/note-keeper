@@ -34,7 +34,7 @@ const Notes = () => {
     })
 
     return (
-        <ul className={styles.layout} role='list'>
+        <ul className={`${styles.layout} notesCanvas`} role='list'>
             {noteComponents}
         </ul>
     )

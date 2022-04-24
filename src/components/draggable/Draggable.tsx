@@ -12,13 +12,16 @@ const Draggable = ({ render, isActiveDraggable }: Props) => {
     const nodeRef = useRef(null)
 
     return (
-        <ReactDraggable nodeRef={nodeRef}>
-            <span
+        <ReactDraggable
+            bounds='.notesCanvas'
+            nodeRef={nodeRef}
+        >
+            <li
                 className={`${styles.draggable} ${isActiveDraggable ? styles.activeDraggable : ''}`}
                 ref={nodeRef}
             >
                 {render()}
-            </span>
+            </li>
         </ReactDraggable>
     )
 }

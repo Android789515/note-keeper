@@ -35,7 +35,7 @@ const Note = ({ note, setActiveNote }: Props) => {
     useEffect(setActiveWhenCreated, [])
 
     return (
-        <li
+        <span
             className={`${styles.note} ${getAnimationClass()}`}
             style={{ background: color }}
             onMouseDown={() => setActiveNote(note)}
@@ -50,7 +50,7 @@ const Note = ({ note, setActiveNote }: Props) => {
             >
                 {text}
             </p>
-        </li>
+        </span>
     )
 }
 
