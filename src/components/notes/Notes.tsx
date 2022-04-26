@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { State } from '../../types/reduxTypes'
@@ -14,23 +14,37 @@ const Notes = () => {
 
     const [ activeNote, setActiveNote ] = useState<NoteType>()
 
-    const noteComponent = (note: NoteType) => {
+    const NoteComponent = (note: NoteType) => {
         return (
             <Note
+                key={note.id}
                 note={note}
                 setActiveNote={setActiveNote}
             />
         )
     }
 
+    const [ isMobileLayout, setIsMobileLayout ] = useState(false)
+    useEffect(() => {
+        const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+
+        if (viewportWidth < 600) {
+            setIsMobileLayout(true)
+        }
+    }, [])
+
     const noteComponents = notes.map(note => {
-        return (
-            <Draggable
-                key={note.id}
-                isActiveDraggable={activeNote?.id === note.id}
-                render={() => noteComponent(note)}
-            />
-        )
+        if (isMobileLayout) {
+            return NoteComponent(note)
+        } else {
+            return (
+                <Draggable
+                    key={note.id}
+                    isActiveDraggable={activeNote?.id === note.id}
+                    render={() => NoteComponent(note)}
+                />
+            )
+        }
     })
 
     return (

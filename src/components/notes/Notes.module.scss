@@ -9,13 +9,13 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
-
-  height: 100vh;
 }
 
 $layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
 @media (min-width: $layoutChange) {
   .layout {
     display: revert;
+
+    height: 100vh;
   }
 }
