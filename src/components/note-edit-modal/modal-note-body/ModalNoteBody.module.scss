@@ -1,0 +1,20 @@
+@use '../../../mixins';
+
+.noteTextBody {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+
+  max-height: 100%;
+}
+
+.editableNoteText {
+  @include mixins.unstyled-textarea;
+
+  font-size: 1.2rem;
+
+  resize: none;
+
+  width: 100%;
+  min-height: 99%;
+}

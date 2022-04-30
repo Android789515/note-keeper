@@ -1,0 +1,19 @@
+@use 'sass:list';
+@use '../../../breakpoints';
+
+.modalNote {
+  max-width: 18.5625em;
+
+  transform: scale(1);
+  transition: none;
+}
+
+$layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $layoutChange) {
+  .modalNote {
+    min-width: 23.0416875em;
+    max-width: revert;
+
+    min-height: 20.0416875em;
+  }
+}

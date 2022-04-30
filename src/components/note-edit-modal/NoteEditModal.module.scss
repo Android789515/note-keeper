@@ -1,8 +1,3 @@
-@use 'sass:list';
-
-@use '../../breakpoints';
-@use '../../mixins';
-
 .container {
   display: flex;
   flex-direction: column;
@@ -11,47 +6,4 @@
 
   width: 100vw;
   height: 100vh;
-}
-
-.modalNote {
-  max-width: 18.5625em;
-
-  transform: scale(1);
-  transition: none;
-}
-
-$layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
-@media (min-width: $layoutChange) {
-  .modalNote {
-    min-width: 23.0416875em;
-    max-width: revert;
-
-    min-height: 20.0416875em;
-  }
-}
-
-.noteTextBody {
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: gray transparent;
-
-  max-height: 100%;
-}
-
-.editableNoteText {
-  @include mixins.unstyled-textarea;
-
-  font-size: 1.2rem;
-
-  resize: none;
-
-  width: 100%;
-  min-height: 99%;
-}
-
-.howToSaveText {
-  font-size: 1.1rem;
-  color: #fff;
-
-  text-shadow: 1px 1px #333;
 }
