@@ -5,7 +5,8 @@ $rounded-corners: 5px;
   grid-template-rows: 1fr;
   grid-template-columns: max-content max-content;
   grid-column-gap: .5em;
-  justify-content: center;
+
+  min-width: 16.2916875em;
 
   padding: .25em;
   margin: 0 auto 2em auto;

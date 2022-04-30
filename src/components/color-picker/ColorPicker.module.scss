@@ -16,6 +16,8 @@
 
 .colorPicker:focus-within,
 .colorPicker:hover {
+  position: absolute;
+
   grid-auto-columns: max-content;
 }
 
