@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { State } from '../../types/reduxTypes'
-import { Note as NoteType } from '../../types/noteTypes'
+import { Note as NoteType, NoteID } from '../../types/noteTypes'
 
 import styles from './Notes.module.scss'
 
@@ -12,14 +12,15 @@ import Note from '../note/Note'
 const Notes = () => {
     const notes = useSelector(({ notes }: State) => notes)
 
-    const [ activeNote, setActiveNote ] = useState<NoteType>()
+    const [ activeNoteID, setActiveNoteID ] = useState<NoteID>()
+    useEffect(() => console.log(activeNoteID), [activeNoteID])
 
     const NoteComponent = (note: NoteType) => {
         return (
             <Note
                 key={note.id}
                 note={note}
-                setActiveNote={setActiveNote}
+                setActiveNoteID={setActiveNoteID}
             />
         )
     }
@@ -40,7 +41,7 @@ const Notes = () => {
             return (
                 <Draggable
                     key={note.id}
-                    isActiveDraggable={activeNote?.id === note.id}
+                    isActiveDraggable={activeNoteID === note.id}
                     render={() => NoteComponent(note)}
                 />
             )

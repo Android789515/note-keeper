@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
 
-import { Note as NoteType } from '../../types/noteTypes'
+import { Note as NoteType, NoteID } from '../../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
 import useIntoOutro from '../../utils/useIntoOutro'
 import useEnterAsClick from '../../utils/useEnterAsClick'
@@ -13,10 +13,10 @@ import useEditNote from './useEditNote'
 
 interface Props {
     note: NoteType
-    setActiveNote: (note: NoteType) => void
+    setActiveNoteID: (noteID: NoteID) => void
 }
 
-const Note = ({ note, setActiveNote }: Props) => {
+const Note = ({ note, setActiveNoteID }: Props) => {
     const { text, color } = note
 
     const { noteOnMount, noteOnDestroy } = styles
@@ -31,14 +31,14 @@ const Note = ({ note, setActiveNote }: Props) => {
 
     const { clickOnEnterPress } = useEnterAsClick()
 
-    const setActiveWhenCreated = () => setActiveNote(note)
+    const setActiveWhenCreated = () => setActiveNoteID(note.id)
     useEffect(setActiveWhenCreated, [])
 
     return (
-        <span
+        <div
             className={`${styles.note} ${getAnimationClass()}`}
             style={{ background: color }}
-            onMouseDown={() => setActiveNote(note)}
+            onMouseDown={() => setActiveNoteID(note.id)}
         >
             <NoteHeader note={note} deleteNote={deleteNoteAfterOutro} />
 
@@ -50,7 +50,7 @@ const Note = ({ note, setActiveNote }: Props) => {
             >
                 {text}
             </p>
-        </span>
+        </div>
     )
 }
 

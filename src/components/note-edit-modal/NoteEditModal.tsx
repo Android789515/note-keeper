@@ -45,7 +45,7 @@ const NoteEditModal = ({ note }: Props) => {
             >
                 <header className={noteStyles.noteHeader} style={{ background: headerColor.hex() }} />
 
-                <p className={noteStyles.noteBody}>
+                <p className={`${noteStyles.noteBody} ${styles.noteTextBody}`}>
                     <textarea
                         className={styles.editableNoteText}
                         value={getNoteText()}
