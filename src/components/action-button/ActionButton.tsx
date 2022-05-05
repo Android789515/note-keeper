@@ -14,8 +14,6 @@ interface Props {
 }
 
 const ActionButton = ({ text, action, baseColor, disabled }: Props) => {
-    const performActionOnClick = () => action()
-
     const computedColor = Color(baseColor)
     const isBaseColorDark = computedColor.isDark()
 
@@ -25,16 +23,24 @@ const ActionButton = ({ text, action, baseColor, disabled }: Props) => {
         background: baseColor
     }
 
-    const darkenButton = (event: React.SyntheticEvent) => {
-        const button = event.target as HTMLButtonElement
-
-        button.style.background = computedColor.darken(.125).hex()
-    }
-
     const lightenButton = (event: React.SyntheticEvent) => {
         const button = event.target as HTMLButtonElement
 
         button.style.background = baseColor
+    }
+
+    const darkenButton = (event: React.SyntheticEvent) => {
+        const button = event.target as HTMLButtonElement
+
+        if (!disabled) {
+            button.style.background = computedColor.darken(.125).hex()
+        }
+    }
+
+    const performActionOnClick = () => {
+        if (!disabled) {
+            action()
+        }
     }
 
     return (

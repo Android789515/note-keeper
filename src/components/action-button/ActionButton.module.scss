@@ -10,6 +10,10 @@
   transform: translateY(0);
 }
 
-.actionButton:active {
+.actionButton:active:not(:disabled) {
   transform: translateY(.25em);
+}
+
+.actionButton:disabled {
+  cursor: not-allowed;
 }
