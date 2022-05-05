@@ -26,8 +26,8 @@ const Note = ({ note, setActiveNoteID }: Props) => {
     const { deleteNote } = useEditNote(note)
     const deleteNoteAfterOutro = () => applyOutroClass(deleteNote)
 
-    const { setModal } = useContext(modal)
-    const openEditModal = () => setModal!(<NoteEditModal note={note} />)
+    const { openModal } = useContext(modal)
+    const openEditModal = () => openModal!(<NoteEditModal note={note} />)
 
     const { clickOnEnterPress } = useEnterAsClick()
 

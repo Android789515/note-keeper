@@ -5,14 +5,16 @@
 }
 
 @mixin unstyled-textarea {
-  padding: 0;
   background: none;
+  padding: 0;
   border: none;
 }
 
 @mixin unstyled-button {
-  padding: 0;
+  display: inline-block;
+
   background: 0;
+  padding: 0;
   border: 0;
 }
 

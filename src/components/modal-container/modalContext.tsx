@@ -1,10 +1,12 @@
 import React, { createContext, useState } from 'react'
 
-type Modal = JSX.Element | undefined
+type Modal = JSX.Element
 
+// Keys are set to optional to initialize context
 interface ModalMethods {
     getCurrentModal?: () => Modal | undefined
-    setModal?: (modal: Modal) => void
+    openModal?: (modal: Modal) => void
+    closeModal?: () => void
 }
 
 const modal = createContext<ModalMethods>({})
@@ -13,10 +15,15 @@ const { Provider } = modal
 const ModalProvider: React.FC = ({ children }) => {
     const [ currentModal, updateModal ] = useState<Modal>()
 
-    const setModal = (modal: Modal) => updateModal(modal)
+    const openModal = (modal: Modal) => {
+        if (modal !== undefined) {
+            updateModal(modal)
+        }
+    }
+    const closeModal = () => updateModal(undefined)
     const getCurrentModal = () => currentModal
 
-    const modalMethods = { getCurrentModal, setModal }
+    const modalMethods = { getCurrentModal, openModal, closeModal }
 
     return (
         <Provider value={modalMethods}>

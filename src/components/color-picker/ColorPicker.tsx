@@ -11,9 +11,10 @@ import ColorDot from './color-dot/ColorDot'
 interface Props {
     getCurrentColor: () => Color
     setCurrentColor: (color: Color) => void
+    backgroundColor: Color
 }
 
-const ColorPicker = ({ getCurrentColor, setCurrentColor }: Props) => {
+const ColorPicker = ({ getCurrentColor, setCurrentColor, backgroundColor }: Props) => {
     const colorPickerRef = useRef<HTMLDivElement>(null)
 
     const openColorPicker = (event: React.MouseEvent) => {
@@ -38,6 +39,7 @@ const ColorPicker = ({ getCurrentColor, setCurrentColor }: Props) => {
         <div
             className={`${styles.colorPicker}`}
             ref={colorPickerRef}
+            style={{ backgroundColor }}
             onClick={openColorPicker}
         >
             {colors}

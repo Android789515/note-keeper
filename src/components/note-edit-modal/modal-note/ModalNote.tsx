@@ -1,31 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import { Color as NoteColor } from '../../../types/types'
 import { Note } from '../../../types/noteTypes'
-import useColorPicker from '../../color-picker/useColorPicker'
+
+import useEditNote from '../../note/useEditNote'
 
 import noteStyles from '../../note/Note.module.scss'
 import styles from './ModalNote.module.scss'
 
-type NoteColorGetter = () => NoteColor
-type NoteColorSetter = (color: NoteColor) => void
+import ModalNoteHeader from '../modal-note-header/ModalNoteHeader'
+import ModalNoteBody from '../modal-note-body/ModalNoteBody'
 
 interface Props {
     note: Note
-    children: (getCurrentColor: NoteColorGetter, setCurrentColor: NoteColorSetter) => JSX.Element
+    isSaving: boolean
+    saveAndExit: (saveFunction: () => void) => void
 }
 
-const ModalNote: React.FC<Props> = (props) => {
-    const { note } = props
+const ModalNote = ({ note, isSaving, saveAndExit }: Props) => {
 
-    const { getCurrentColor, setCurrentColor } = useColorPicker(note.color)
+    const { getNoteText, setNoteText, getCurrentColor, setCurrentColor, submitNoteChanges } = useEditNote(note)
+
+    const submitNoteChangesOnSave = () => {
+
+        if (isSaving) {
+            saveAndExit(submitNoteChanges)
+        }
+    }
+    useEffect(submitNoteChangesOnSave, [isSaving])
 
     return (
         <div
             className={`${styles.modalNote} ${noteStyles.note}`}
             style={{ background: getCurrentColor() }}
         >
-            {props.children(getCurrentColor, setCurrentColor)}
+            <ModalNoteHeader
+                getCurrentColor={getCurrentColor}
+                setCurrentColor={setCurrentColor}
+            />
+
+            <ModalNoteBody
+                getNoteText={getNoteText}
+                setNoteText={setNoteText}
+            />
         </div>
     )
 }

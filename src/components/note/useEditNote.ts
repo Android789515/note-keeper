@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { Note, UpdatableNoteParts } from '../../types/noteTypes'
-import { deleteNote as deleteAction, updateNote as updateAction } from '../notes/notesReducer'
+import { Text } from '../../types/types'
+import { Note } from '../../types/noteTypes'
+import { deleteNote as deleteAction, updateNote } from '../notes/notesReducer'
+import useColorPicker from '../color-picker/useColorPicker'
 
 const useEditNote = (note: Note) => {
     const [ currentNoteText, updateNoteText ] = useState(note.text)
+    const { getCurrentColor, setCurrentColor } = useColorPicker(note.color)
 
     const getNoteText = () => currentNoteText
 
-    const setNoteText = ({ target }: React.ChangeEvent) => {
-        const { value: newNoteText } = target as HTMLTextAreaElement
-        updateNoteText(newNoteText)
-    }
+    const setNoteText = (text: Text) => updateNoteText(text)
 
     const dispatch = useDispatch()
-    const updateNote = () => {
-        dispatch(updateAction(note.id, UpdatableNoteParts.text, currentNoteText))
+    const submitNoteChanges = () => {
+        dispatch(updateNote(note.id, { text: currentNoteText, color: getCurrentColor() }))
     }
 
     const deleteNote = () => {
@@ -26,7 +26,9 @@ const useEditNote = (note: Note) => {
     return {
         getNoteText,
         setNoteText,
-        updateNote,
+        getCurrentColor,
+        setCurrentColor,
+        submitNoteChanges,
         deleteNote
     }
 }

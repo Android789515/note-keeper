@@ -1,0 +1,15 @@
+@use '../../mixins';
+
+.actionButton {
+  @include mixins.unstyled-button;
+  @include mixins.clickable;
+
+  padding: 1em 3.5em;
+  border-radius: .5em;
+
+  transform: translateY(0);
+}
+
+.actionButton:active {
+  transform: translateY(.25em);
+}

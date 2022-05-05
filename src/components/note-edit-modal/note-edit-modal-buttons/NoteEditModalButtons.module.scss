@@ -1,0 +1,15 @@
+@use 'sass:list';
+@use '../../../breakpoints';
+
+.noteEditModalButtons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 1em;
+}
+
+$layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
+@media (min-width: $layoutChange) {
+  .noteEditModalButtons {
+    margin-top: 2em;
+  }
+}

@@ -1,4 +1,4 @@
-import { Text, Color } from './types'
+import { Color, Text } from './types'
 
 export enum NoteColors {
     default = '#fff476',
@@ -17,7 +17,7 @@ export interface Note {
     color: Color
 }
 
-export enum UpdatableNoteParts {
-    text = 'text',
-    color = 'color'
+export interface NoteUpdates {
+    text: Text
+    color: Color
 }

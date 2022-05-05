@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux'
 
 import styles from './CreateNoteBox.module.scss'
 
+import { Colors } from '../../types/colors'
 import { NoteColors } from '../../types/noteTypes'
 import useCreateNote from './useCreateNote'
 
@@ -31,6 +32,7 @@ const CreateNoteBox = () => {
             <ColorPicker
                 getCurrentColor={getCurrentColor}
                 setCurrentColor={setCurrentColor}
+                backgroundColor={Colors.white}
             />
         </div>
     )

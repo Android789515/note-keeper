@@ -1,33 +1,49 @@
+import { useContext, useEffect, useState } from 'react'
+
 import { Note } from '../../types/noteTypes'
+import { modal } from '../modal-container/modalContext'
 
 import styles from './NoteEditModal.module.scss'
 
-import ModalNoteBody from './modal-note-body/ModalNoteBody'
-import ModalNoteHeader from './modal-note-header/ModalNoteHeader'
 import ModalNote from './modal-note/ModalNote'
-import HowToSaveText from './how-to-save-text/HowToSaveText'
+import NoteEditModalButtons from './note-edit-modal-buttons/NoteEditModalButtons'
 
 interface Props {
     note: Note
 }
 
 const NoteEditModal = ({ note }: Props) => {
+    // Methods are defined in modal context
+    const { closeModal } = useContext(modal)
+
+    const [ isSaving, setIsSaving ] = useState(false)
+    useEffect(() => console.log(isSaving), [isSaving])
+
+    const exitModal = () => {
+        setIsSaving(false)
+        closeModal!()
+    }
+
+    const save = () => setIsSaving(true)
+    const saveAndExit = (saveFunction: () => void) => {
+        saveFunction()
+
+        exitModal()
+    }
 
     return (
         <div className={styles.container}>
-            <ModalNote note={note}>
-                {(getCurrentColor, setCurrentColor) => (
-                    <>
-                        <ModalNoteHeader
-                            getCurrentColor={getCurrentColor}
-                            setCurrentColor={setCurrentColor}
-                        />
-                        <ModalNoteBody note={note} />
-                    </>
-                )}
-            </ModalNote>
+            <ModalNote
+                note={note}
+                isSaving={isSaving}
+                saveAndExit={saveAndExit}
+            />
 
-            <HowToSaveText />
+            <NoteEditModalButtons
+                isSaving={isSaving}
+                save={save}
+                exitModal={exitModal}
+            />
         </div>
     )
 }

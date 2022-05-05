@@ -1,5 +1,6 @@
 import Color from 'color'
 
+import { Colors } from '../../../types/colors'
 import { Color as NoteColor } from '../../../types/types'
 
 import noteStyles from '../../note/Note.module.scss'
@@ -19,6 +20,7 @@ const ModalNoteHeader = ({ getCurrentColor, setCurrentColor }: Props) => {
             <ColorPicker
                 getCurrentColor={getCurrentColor}
                 setCurrentColor={setCurrentColor}
+                backgroundColor={Colors.none}
             />
         </header>
     )

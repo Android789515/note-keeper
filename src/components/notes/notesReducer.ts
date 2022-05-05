@@ -1,6 +1,5 @@
-import { Color, Text } from '../../types/types'
 import { Action } from '../../types/reduxTypes'
-import { Note, NoteID, UpdatableNoteParts } from '../../types/noteTypes'
+import { Note, NoteID, NoteUpdates } from '../../types/noteTypes'
 
 enum Actions {
     create = 'notes/create',
@@ -18,9 +17,9 @@ const deleteNote = (ID: NoteID) => {
     return { type: Actions.delete, payload: ID }
 }
 
-const updateNote = (id: NoteID, partOfNote: UpdatableNoteParts, content: Text | Color) => {
+const updateNote = (noteID: NoteID, noteUpdates: NoteUpdates) => {
 
-    return { type: Actions.update, payload: { id, partOfNote, content } }
+    return { type: Actions.update, payload: { noteID, noteUpdates } }
 }
 
 const notesReducer = (notes: Note[] = [], action: Action) => {
@@ -30,20 +29,20 @@ const notesReducer = (notes: Note[] = [], action: Action) => {
             return [...notes, newNote]
 
         case Actions.delete:
-            const noteID = action.payload
+            const note_ID = action.payload
             return notes.filter(note => {
-                const shouldKeepNote = note.id !== noteID
+                const shouldKeepNote = note.id !== note_ID
                 return shouldKeepNote
             })
 
         case Actions.update:
-            const { id, partOfNote, content } = action.payload
+            const { noteID, noteUpdates } = action.payload
 
             return notes.map(note => {
-                const isNoteToUpdate = note.id === id
+                const isNoteToUpdate = note.id === noteID
 
                 if (isNoteToUpdate) {
-                    return { ...note, [partOfNote]: content }
+                    return { ...note, ...noteUpdates }
                 }
                 return note
             })

@@ -13,7 +13,6 @@ const Notes = () => {
     const notes = useSelector(({ notes }: State) => notes)
 
     const [ activeNoteID, setActiveNoteID ] = useState<NoteID>()
-    useEffect(() => console.log(activeNoteID), [activeNoteID])
 
     const NoteComponent = (note: NoteType) => {
         return (
