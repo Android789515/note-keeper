@@ -26,9 +26,11 @@ const NoteEditModal = ({ note }: Props) => {
 
     const save = () => setIsSaving(true)
     const saveAndExit = (saveFunction: () => void) => {
-        saveFunction()
+        setTimeout(() => {
+            saveFunction()
 
-        exitModal()
+            exitModal()
+        }, 1500)
     }
 
     return (
