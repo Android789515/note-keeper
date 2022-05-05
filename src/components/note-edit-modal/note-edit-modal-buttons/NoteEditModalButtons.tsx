@@ -25,7 +25,7 @@ const NoteEditModalButtons = ({ isSaving, save, exitModal }: Props) => {
             <ActionButton
                 text='Cancel'
                 action={exitModal}
-                baseColor={Colors.dimWhite}
+                baseColor={Colors.softWhite}
             />
         </div>
     )

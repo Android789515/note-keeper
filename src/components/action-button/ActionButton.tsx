@@ -18,7 +18,7 @@ const ActionButton = ({ text, action, baseColor, disabled }: Props) => {
     const isBaseColorDark = computedColor.isDark()
 
     const dynamicButtonStyles = {
-        color: isBaseColorDark ? Colors.white : Colors.black,
+        color: isBaseColorDark ? Colors.softWhite : Colors.softBlack,
 
         background: baseColor
     }
