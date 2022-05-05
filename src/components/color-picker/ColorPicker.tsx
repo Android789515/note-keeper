@@ -3,8 +3,9 @@ import { v4 as uuid } from 'uuid'
 
 import styles from './ColorPicker.module.scss'
 
-import { NoteColors } from '../../types/noteTypes'
 import { Color } from '../../types/types'
+import { Colors } from '../../types/colors'
+import { NoteColors } from '../../types/noteTypes'
 
 import ColorDot from './color-dot/ColorDot'
 
@@ -30,6 +31,7 @@ const ColorPicker = ({ getCurrentColor, setCurrentColor, backgroundColor }: Prop
                 key={uuid()}
                 color={color}
                 isCurrentColor={isCurrentColor}
+                needsDropShadow={backgroundColor === Colors.none}
                 setCurrentColor={setCurrentColor}
             />
         )
