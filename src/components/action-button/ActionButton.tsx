@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Color from 'color'
 
 import { Color as ColorType, Text } from '../../types/types'
 import { Colors } from '../../types/colors'
+import useActionButton from './useActionButton'
 
 import styles from './ActionButton.module.scss'
 
@@ -23,36 +24,24 @@ const ActionButton = ({ text, action, baseColor, disabled }: Props) => {
         background: baseColor
     }
 
-    const lightenButton = (event: React.SyntheticEvent) => {
-        const button = event.target as HTMLButtonElement
-
-        button.style.background = baseColor
-    }
-
-    const darkenButton = (event: React.SyntheticEvent) => {
-        const button = event.target as HTMLButtonElement
-
-        if (!disabled) {
-            button.style.background = computedColor.darken(.125).hex()
-        }
-    }
-
-    const performActionOnClick = () => {
-        if (!disabled) {
-            action()
-        }
-    }
+    const actionButtonRef = useRef<HTMLButtonElement>(null)
+    const {
+        darkenButton,
+        restoreButtonColor,
+        performActionOnClick
+    } = useActionButton(actionButtonRef, action)
 
     return (
         <button
             className={styles.actionButton}
             style={dynamicButtonStyles}
             disabled={disabled}
+            ref={actionButtonRef}
             onClick={performActionOnClick}
             onMouseEnter={darkenButton}
-            onMouseLeave={lightenButton}
+            onMouseLeave={restoreButtonColor}
             onFocus={darkenButton}
-            onBlur={lightenButton}
+            onBlur={restoreButtonColor}
         >
             {text}
         </button>
