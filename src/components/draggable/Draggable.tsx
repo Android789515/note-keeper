@@ -4,11 +4,10 @@ import ReactDraggable from 'react-draggable'
 import styles from './Draggable.module.scss'
 
 interface Props {
-    render: () => JSX.Element
     isActiveDraggable: boolean
 }
 
-const Draggable = ({ render, isActiveDraggable }: Props) => {
+const Draggable: React.FC<Props> = (props) => {
     const nodeRef = useRef(null)
 
     return (
@@ -17,10 +16,10 @@ const Draggable = ({ render, isActiveDraggable }: Props) => {
             nodeRef={nodeRef}
         >
             <li
-                className={`${styles.draggable} ${isActiveDraggable ? styles.activeDraggable : ''}`}
+                className={`${styles.draggable} ${props.isActiveDraggable ? styles.activeDraggable : ''}`}
                 ref={nodeRef}
             >
-                {render()}
+                {props.children}
             </li>
         </ReactDraggable>
     )

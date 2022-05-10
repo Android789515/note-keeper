@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { Ref, useContext, useEffect } from 'react'
 
 import { Note as NoteType, NoteID } from '../../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
@@ -14,9 +14,10 @@ import useEditNote from './useEditNote'
 interface Props {
     note: NoteType
     setActiveNoteID: (noteID: NoteID) => void
+    innerRef?: Ref<HTMLDivElement>
 }
 
-const Note = ({ note, setActiveNoteID }: Props) => {
+const Note = ({ note, setActiveNoteID, innerRef }: Props) => {
     const { text, color } = note
 
     const { noteOnMount, noteOnDestroy } = styles
@@ -38,6 +39,7 @@ const Note = ({ note, setActiveNoteID }: Props) => {
         <div
             className={`${styles.note} ${getAnimationClass()}`}
             style={{ background: color }}
+            ref={innerRef}
             onMouseDown={() => setActiveNoteID(note.id)}
         >
             <NoteHeader note={note} deleteNote={deleteNoteAfterOutro} />

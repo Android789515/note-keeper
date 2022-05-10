@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 
 import { Note } from '../../types/noteTypes'
 import { modal } from '../modal-container/modalContext'
@@ -17,7 +17,6 @@ const NoteEditModal = ({ note }: Props) => {
     const { closeModal } = useContext(modal)
 
     const [ isSaving, setIsSaving ] = useState(false)
-    useEffect(() => console.log(isSaving), [isSaving])
 
     const exitModal = () => {
         setIsSaving(false)

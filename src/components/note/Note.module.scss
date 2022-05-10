@@ -19,7 +19,7 @@ $rounded-corners: 10px;
   transform: scale(0) translateX(0);
   transition: transform 500ms;
 }
-.note:not(.note:only-of-type) {
+.note {
   margin-bottom: 2em;
 }
 

@@ -19,12 +19,11 @@ describe('restoreButtonColor', () => {
             <ActionButton
                 text=''
                 action={() => {}}
-                baseColor={Colors.dimWhite}
+                baseColor={Colors.softWhite}
             />
         )
 
         const actionButton = screen.getByRole('button') as HTMLButtonElement
-        actionButton.style.backgroundColor = Colors.dimWhite
 
         const actionButtonRef = simulateActionButtonRef(actionButton)
         const { restoreButtonColor, darkenButton } = useActionButton(actionButtonRef, () => {})
@@ -33,7 +32,7 @@ describe('restoreButtonColor', () => {
         restoreButtonColor()
 
         const actualButtonColor = rgbaToHex(actionButton.style.backgroundColor)
-        const expectedButtonColor = Color(Colors.dimWhite).hex()
+        const expectedButtonColor = Color(Colors.softWhite).hex()
 
         expect(actualButtonColor).toEqual(expectedButtonColor)
     })
@@ -43,7 +42,7 @@ describe('restoreButtonColor', () => {
             <ActionButton
                 text=''
                 action={() => {}}
-                baseColor={Colors.dimWhite}
+                baseColor={Colors.softWhite}
             />
         )
         const actionButton = screen.getByRole('button') as HTMLButtonElement
@@ -57,7 +56,7 @@ describe('restoreButtonColor', () => {
         actionButton.removeEventListener('focus', darkenButton)
 
         const actualButtonColor = rgbaToHex(actionButton.style.backgroundColor)
-        const expectedButtonColor = Color(Colors.dimWhite).darken(darkenRatio).hex()
+        const expectedButtonColor = Color(Colors.softWhite).darken(darkenRatio).hex()
 
         expect(actualButtonColor).toEqual(expectedButtonColor)
     })
