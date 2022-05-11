@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd'
 
 import { State } from '../../types/reduxTypes'
 import { NoteID } from '../../types/noteTypes'
+import { setNotesTo } from './notesReducer'
 
 import styles from './Notes.module.scss'
 
@@ -51,8 +52,24 @@ const Notes = () => {
         }
     })
 
-    const onDragEnd = (result: DropResult) => {
+    const dispatch = useDispatch()
+    const reorderNotes = ({ draggableId, source, destination }: DropResult) => {
+        const notesCopy = [...notes]
+        const noteToMove = notesCopy.find(note => note.id === draggableId)
 
+        notesCopy.splice(source.index, 1)
+        notesCopy.splice(destination!.index, 0, noteToMove!)
+
+        dispatch(setNotesTo(notesCopy))
+    }
+
+    const onDragEnd = (result: DropResult) => {
+        const { destination, source } = result
+        const didLocationChange = destination?.index !== source.index
+
+        if (destination && didLocationChange) {
+            reorderNotes(result)
+        }
     }
 
     return (

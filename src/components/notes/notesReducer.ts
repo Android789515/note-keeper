@@ -4,7 +4,8 @@ import { Note, NoteID, NoteUpdates } from '../../types/noteTypes'
 enum Actions {
     create = 'notes/create',
     delete = 'notes/delete',
-    update = 'notes/update'
+    update = 'notes/update',
+    updateAll = 'notes/updateAll'
 }
 
 const createNote = (note: Note) => {
@@ -20,6 +21,11 @@ const deleteNote = (ID: NoteID) => {
 const updateNote = (noteID: NoteID, noteUpdates: NoteUpdates) => {
 
     return { type: Actions.update, payload: { noteID, noteUpdates } }
+}
+
+const setNotesTo = (notes: Note[]) => {
+
+    return { type: Actions.updateAll, payload: notes }
 }
 
 const notesReducer = (notes: Note[] = [], action: Action) => {
@@ -47,10 +53,13 @@ const notesReducer = (notes: Note[] = [], action: Action) => {
                 return note
             })
 
+        case Actions.updateAll:
+            return action.payload
+
         default:
             return notes
     }
 }
 
-export { createNote, updateNote, deleteNote }
+export { createNote, updateNote, setNotesTo, deleteNote }
 export default notesReducer
