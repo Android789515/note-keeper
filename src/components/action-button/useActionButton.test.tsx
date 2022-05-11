@@ -12,7 +12,7 @@ const simulateActionButtonRef = (actionButton: HTMLButtonElement) => {
     return { current: actionButton } as MutableRefObject<HTMLButtonElement>
 }
 
-describe('restoreButtonColor', () => {
+describe('useActionButton', () => {
 
     it('Restoring original color after darkening the button', () => {
         render(
