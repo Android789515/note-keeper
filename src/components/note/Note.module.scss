@@ -5,6 +5,8 @@
 
 $rounded-corners: 10px;
 
+// TODO: fix bugs with CSS animations, leave commented out for now
+
 .note {
   display: grid;
   grid-template-rows: max-content 1fr;
@@ -16,7 +18,7 @@ $rounded-corners: 10px;
   padding-bottom: .25em;
   border-radius: $rounded-corners;
 
-  transform: scale(0) translateX(0);
+  //transform: scale(0) translateX(0);
   transition: transform 500ms;
 }
 .note {
@@ -24,7 +26,7 @@ $rounded-corners: 10px;
 }
 
 .noteOnMount {
-  transform: scale(1);
+  //transform: scale(1);
 }
 
 .noteOnDestroy {
@@ -72,14 +74,14 @@ $layoutChange: list.nth(breakpoints.$main-breakpoints, 1);
   .note {
     min-height: 9.0416875em;
 
-    transform: scale(0) translateY(0);
+    //transform: scale(0) translateY(0);
   }
   .note:not(.note:only-of-type) {
     margin: 0;
   }
 
   .noteOnMount {
-    transform: scale(1);
+    //transform: scale(1);
   }
 
   .noteOnDestroy {

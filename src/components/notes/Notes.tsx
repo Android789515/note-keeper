@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd'
 
 import { State } from '../../types/reduxTypes'
-import { NoteID } from '../../types/noteTypes'
 import { setNotesTo } from './notesReducer'
+import useActiveNoteTracking from './useActiveNoteTracking'
+import useLayoutChanger from './useLayoutChanger'
 
 import styles from './Notes.module.scss'
 
@@ -16,24 +17,18 @@ import Note from '../note/Note'
 const Notes = () => {
     const notes = useSelector(({ notes }: State) => notes)
 
-    const [ activeNoteID, setActiveNoteID ] = useState<NoteID>()
+    const { getActiveNoteID, setActiveNote } = useActiveNoteTracking()
 
-    const [ isMobileLayout, setIsMobileLayout ] = useState(false)
-    useEffect(() => {
-        const viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-
-        if (viewportWidth < 600) {
-            setIsMobileLayout(true)
-        }
-    }, [])
+    const { isLayoutMobile, setLayout } = useLayoutChanger()
+    useEffect(setLayout, [])
 
     const noteComponents = notes.map((note, index) => {
-        if (isMobileLayout) {
+        if (isLayoutMobile()) {
             return (
                 <DraggableDnD key={note.id} draggableID={note.id} index={index}>
                     <Note
                         note={note}
-                        setActiveNoteID={setActiveNoteID}
+                        setActiveNoteID={setActiveNote}
                     />
                 </DraggableDnD>
             )
@@ -41,11 +36,11 @@ const Notes = () => {
             return (
                 <Draggable
                     key={note.id}
-                    isActiveDraggable={activeNoteID === note.id}
+                    isActiveDraggable={getActiveNoteID() === note.id}
                 >
                     <Note
                         note={note}
-                        setActiveNoteID={setActiveNoteID}
+                        setActiveNoteID={setActiveNote}
                     />
                 </Draggable>
             )
