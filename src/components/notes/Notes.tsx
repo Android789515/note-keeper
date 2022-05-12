@@ -20,7 +20,11 @@ const Notes = () => {
     const { getActiveNoteID, setActiveNote } = useActiveNoteTracking()
 
     const { isLayoutMobile, setLayout } = useLayoutChanger()
-    useEffect(setLayout, [])
+    useEffect(() => {
+        window.addEventListener('resize', setLayout)
+
+        return () => window.removeEventListener('resize', setLayout)
+    }, [])
 
     const noteComponents = notes.map((note, index) => {
         if (isLayoutMobile()) {

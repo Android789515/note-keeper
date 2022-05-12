@@ -10,6 +10,8 @@ const useLayoutChanger = () => {
 
         if (viewportWidth < 600) {
             setIsMobileLayout(true)
+        } else {
+            setIsMobileLayout(false)
         }
     }
 
