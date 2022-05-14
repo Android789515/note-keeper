@@ -13,6 +13,7 @@ import styles from './Notes.module.scss'
 import Draggable from '../draggable/Draggable'
 import DraggableDnD from '../draggable-dnd/DraggableDnD'
 import Note from '../note/Note'
+import useUpdateNotePosition from './useUpdateNotePosition'
 
 const Notes = () => {
     const notes = useSelector(({ notes }: State) => notes)
@@ -25,6 +26,8 @@ const Notes = () => {
 
         return () => window.removeEventListener('resize', setLayout)
     }, [])
+
+    const { updateNotePosition } = useUpdateNotePosition()
 
     const noteComponents = notes.map((note, index) => {
         if (isLayoutMobile()) {
@@ -40,6 +43,10 @@ const Notes = () => {
             return (
                 <Draggable
                     key={note.id}
+                    position={note.position}
+                    updatePosition={(event, data) => {
+                        updateNotePosition(event, data, note.id)
+                    }}
                     isActiveDraggable={getActiveNoteID() === note.id}
                 >
                     <Note

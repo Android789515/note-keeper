@@ -19,6 +19,7 @@ export interface Note {
 }
 
 export interface NoteUpdates {
-    text: Text
-    color: Color
+    text?: Text
+    color?: Color
+    position?: Position2D
 }
