@@ -1,4 +1,4 @@
-import { localStorageKey } from '../store'
+import { localStorageKey } from './notesReducer'
 import { Colors } from '../types/colors'
 import { Note } from '../types/noteTypes'
 import getNotesData from './getNotesData'

@@ -1,12 +1,12 @@
-import { createStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
+
+import saveNotesMiddleWare from './notes-state/saveNotesMiddleWare'
 
 import reducer from './reducer'
 
-const store = createStore(
+const store = configureStore({
     reducer,
-    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-)
-
-export const localStorageKey = 'notes'
+    middleware: [saveNotesMiddleWare]
+})
 
 export default store

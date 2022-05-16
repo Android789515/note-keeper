@@ -1,5 +1,6 @@
 import { Action } from '../types/reduxTypes'
 import { Note, NoteID, NoteUpdates } from '../types/noteTypes'
+import getNotesData from './getNotesData'
 
 enum Actions {
     create = 'notes/create',
@@ -28,7 +29,7 @@ const setNotesTo = (notes: Note[]) => {
     return { type: Actions.updateAll, payload: notes }
 }
 
-const notesReducer = (notes: Note[] = [], action: Action) => {
+const notesReducer = (notes: Note[] = getNotesData(), action: Action) => {
     switch (action.type) {
         case Actions.create:
             const newNote = action.payload
@@ -60,6 +61,8 @@ const notesReducer = (notes: Note[] = [], action: Action) => {
             return notes
     }
 }
+
+export const localStorageKey = 'noteKeeper-notesData'
 
 export { createNote, updateNote, setNotesTo, deleteNote }
 export default notesReducer
