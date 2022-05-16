@@ -3,7 +3,7 @@ import { Dispatch } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
 
 import { Color, Key, Keys } from '../../types/types'
-import { createNote } from '../notes/notesReducer'
+import { createNote } from '../../notes-state/notesReducer'
 
 interface ChangeEvent {
     target: {

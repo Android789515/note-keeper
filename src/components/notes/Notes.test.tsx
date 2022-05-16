@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 
 import store from '../../store'
 import { Note, NoteColors } from '../../types/noteTypes'
-import { createNote } from './notesReducer'
+import { createNote } from '../../notes-state/notesReducer'
 
 import Notes from './Notes'
 

@@ -1,5 +1,5 @@
-import { Action } from '../../types/reduxTypes'
-import { Note, NoteID, NoteUpdates } from '../../types/noteTypes'
+import { Action } from '../types/reduxTypes'
+import { Note, NoteID, NoteUpdates } from '../types/noteTypes'
 
 enum Actions {
     create = 'notes/create',

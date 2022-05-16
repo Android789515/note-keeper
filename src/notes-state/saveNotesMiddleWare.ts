@@ -1,6 +1,6 @@
 import { Middleware } from '@reduxjs/toolkit'
 
-import { State } from '../../types/reduxTypes'
+import { State } from '../types/reduxTypes'
 
 const saveNotesMiddleWare: Middleware<{}, State> = store => next => action => {
     if (action) {

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { Text } from '../../types/types'
 import { Note } from '../../types/noteTypes'
-import { deleteNote as deleteAction, updateNote } from '../notes/notesReducer'
+import { deleteNote as deleteAction, updateNote } from '../../notes-state/notesReducer'
 import useColorPicker from '../color-picker/useColorPicker'
 
 const useEditNote = (note: Note) => {

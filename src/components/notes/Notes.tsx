@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid'
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd'
 
 import { State } from '../../types/reduxTypes'
-import { setNotesTo } from './notesReducer'
+import { setNotesTo } from '../../notes-state/notesReducer'
 import useActiveNoteTracking from './useActiveNoteTracking'
 import useLayoutChanger from './useLayoutChanger'
 
