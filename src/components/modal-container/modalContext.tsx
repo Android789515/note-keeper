@@ -1,8 +1,8 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react';
 
 type Modal = JSX.Element
 
-// Keys are set to optional to initialize context
+// Keys are set to optional to initialize the context
 interface ModalMethods {
     getCurrentModal?: () => Modal | undefined
     openModal?: (modal: Modal) => void
