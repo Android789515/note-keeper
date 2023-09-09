@@ -1,34 +1,90 @@
-# Here are some pictures of the app
+# note-keeper
 
-## Mobile
-<img src="screenshots/note-keeper-mobile-blank.png" alt='Mobile view of app' />
+Web app for keeping notes.
 
-## Creating a note 
-<img src='screenshots/note-keeper-mobile-creating-note.png' alt='Creating a note' />
+## Table of Contents
+1. [Goals](#goals)
+2. [Technologies Used](#technologies-used)
+3. [Project Setup](#project-setup)
+4. [Screenshots](#here-are-some-screenshots-of-the-app)
 
-## Notes
-<img src="screenshots/note-keeper-mobile-note-showcase-1.png" alt='When notes are present' />
+## Goals
+I made this project to learn about unit testing and TDD: test-driven development.  The scope was intended to be small in order to finish the project in a reasonable amount of time.
 
-<img src="screenshots/note-keeper-mobile-note-showcase-2.png" alt='When notes are present' />
+## Technologies Used
+* React - My framework of choice.
 
-## Re-ordering notes
+* TypeScript - I use TypeScript for my projects.
 
-<img src="screenshots/note-keeper-mobile-reorder-showcase.png" alt='Re-ordering notes' />
+* Redux - For managing application state and applying middleware to save notes to local storage.
 
-## Large screen
+* React Testing Library - The testing framework for Create Reat App.
 
-<img src="screenshots/note-keeper-note-showcase.png" alt='View of the app at large screen size' />
+* React Beautiful DnD - The drag and drop library for mobile sizes.  I chose it for easy setup for vertical lists.
 
-## Dragging notes
+* React Draggable - The dragging library for large screen sizes.  Chosen for its stateful dragging functionality.  The exact position of each note is saved along with the rest of the note data.
 
-<img src='screenshots/note-keeper-drag-showcase.png' alt='Dragging notes' />
+* SCSS
 
-## The active note will show above others
+* Color - A library I used to automate colors for the note headers and some buttons.
 
-<img src="screenshots/note-keeper-active-note-showcase.png" alt='The active note will show above others' />
+## Project Setup
 
-## When editing a note
+### Clone
 
-<img src="screenshots/note-edit-modal-showcase-mobile.png" alt='When editing a note' />
+```bash
+$ git clone https://github.com/Android789515/react-clock.git
+```
 
-<img src="screenshots/note-edit-modal-showcase.png" alt='When editing a note' />
+### Install
+
+```bash
+$ npm install
+```
+
+### Development
+
+```bash
+$ npm run dev
+```
+
+### Build
+
+```bash
+$ npm run build
+```
+
+## Here are some screenshots of the app
+
+### Mobile
+![Mobile view of app](./screenshots/note-keeper-mobile-blank.png)
+
+## Creating a note
+![Creating a note](./screenshots/note-keeper-mobile-creating-note.png)
+
+### Notes
+![When notes are present](./screenshots/note-keeper-mobile-note-showcase-1.png)
+
+![When notes are present](./screenshots/note-keeper-mobile-note-showcase-2.png)
+
+### Re-ordering notes
+
+![Re-ordering notes](./screenshots/note-keeper-mobile-reorder-showcase.png)
+
+### Large screen
+
+![View of the app at large screen size](./screenshots/note-keeper-note-showcase.png)
+
+### Dragging notes
+
+![Dragging notes](./screenshots/note-keeper-drag-showcase.png)
+
+### The active note will show above others
+
+![The active note will show above others](./screenshots/note-keeper-active-note-showcase.png)
+
+### When editing a note
+
+![When editing a note](./screenshots/note-edit-modal-showcase-mobile.png)
+
+![When editing a note](./screenshots/note-edit-modal-showcase.png)
